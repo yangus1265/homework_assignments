@@ -1,0 +1,63 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+Assignment 1:
+Read in the restaurant level data: https://byuistats.github.io/M335/data/chipotle_reduced.csv
+
+Here is a data dictionary
+
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(readr)
+library("stringr")                 
+
+data <- read_csv("C:/Users/yang/Documents/code/tutoring/Saige_r_and_python/r_assignments/chipotle_reduced.csv")
+```
+Create 2 functions. Both functions should take as input the character string that contains a count of visits by day of the week. In other words, the string contained in popularity_by_day for just one site (aka row).(We will worry about expanding the function to multiple sites or rows in the next task. For now the input is just one string). The 2 functions will differ in what they return:
+
+Function 1 should return a dataframe (or tibble to be more precise) that contains the name of each day of the week in one column and the number of visits at that store in the other column
+
+
+```{r}
+function1 <- function(store){ 
+  data %>% 
+  select(placekey, popularity_by_day) %>% 
+  mutate(clean_popular = gsub("\\{|\\}", "", popularity_by_day)) %>%
+  mutate(V2 = strsplit(as.character(clean_popular), ",")) %>% 
+  unnest(V2) %>%
+  separate(V2, c("day", "count"), ":") %>%
+  mutate(clean_day = gsub('"', '', day)) %>%
+  mutate(count = as.numeric(count)) %>%
+  select(placekey, clean_day, count) %>%
+  filter(placekey == store)
+}
+
+```
+
+```{r}
+output1 <- function1("zzw-222@5vg-nwf-mp9")
+output1
+```
+
+Function 2 should build on Function 1 and take it a step further. Namely, it should return the most popular day of the week (in terms of visits) at that store
+
+```{r}
+function2 <- function(input_dataframe) {
+    input_dataframe %>%
+    arrange(desc(count)) %>%
+    top_n(1) %>%
+    select(clean_day)
+}
+
+```
+
+
+```{r}
+output2 <- function2(output1)  
+output2
+```
+
