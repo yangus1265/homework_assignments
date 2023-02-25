@@ -1,0 +1,67 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+Get the scripture text and savior name data into R.
+Scripture Text: Use the same data from the previous task. You don’t have to download it again if you stored it on your computer.
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(readr)
+library("stringr")                 
+library(ggplot2)
+
+```
+
+```{r}
+savior_name <- read_rds("https://byuistats.github.io/M335/data/BoM_SaviorNames.rds")
+lds_scriptures <- read_csv("/Users/enchiehyang/Documents/code/tutoring/homework_assignments/r_assignments/lds-scriptures.csv")
+
+```
+
+Use the list of Savior names and the Book of Mormon text to find the distribution of words between references to the Savior for each book in the Book of Mormon.
+  - Find each instance of a Savior name in the Book of Mormon.
+  - Split on those instances and then count the number of words between each instance.
+  - You can use the purrr package to do this efficiently while still keeping track of the book it belongs to - which is needed for the visualizations requested below.
+
+This is already done for you
+
+Create a plot that visualizes the distribution of words between references to the Savior for each book in the Book of Mormon. Ideally the plot should facilitate easy comparison between the distributions.
+```{r}
+df %>%
+  filter(Book == "1 Nephi")
+
+```
+
+```{r}
+df %>%
+  filter(Book == "1 Nephi") %>%
+  mutate(word_cnt = as.character(words)) %>%
+  group_by(Book) %>%
+  count(word_cnt)
+```
+```{r}
+
+test = df %>%
+  mutate(word_cnt = as.character(words)) %>%
+  group_by(Book) %>%
+  count(word_cnt)
+
+```
+
+I think what we're doing is we're doing a count of the words 
+
+```{r}
+test
+```
+
+The two columns you need are "Book" and "words" 
+```{r}
+
+ggplot(data=test, aes(x=reorder(Book, -n), y=word_cnt), fill=Book) +
+  geom_bar(position = "dodge", stat="identity")
+
+```
+

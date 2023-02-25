@@ -1756,36 +1756,15 @@ display: none;
 <p>Here is a data dictionary</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxu4pSA4pSAIEF0dGFjaGluZyBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMy4yIOKUgOKUgOKclCBnZ3Bsb3QyIDMuNC4xICAgICDinJQgcHVycnIgICAxLjAuMVxu4pyUIHRpYmJsZSAgMy4xLjggICAgIOKclCBmb3JjYXRzIDEuMC4w4pSA4pSAIENvbmZsaWN0cyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlX2NvbmZsaWN0cygpIOKUgOKUgFxu4pyWIGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbuKcliBkcGx5cjo6bGFnKCkgICAgbWFza3Mgc3RhdHM6OmxhZygpXG4ifQ== -->
-<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
-  method         from
-  print.tbl_lazy     
-  print.tbl_sql      
-── Attaching packages ────────────────────────────────────────────────── tidyverse 1.3.2 ──✔ ggplot2 3.4.1     ✔ purrr   1.0.1
-✔ tibble  3.1.8     ✔ forcats 1.0.0── Conflicts ───────────────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkcGx5cilcbmxpYnJhcnkodGlkeXIpXG5saWJyYXJ5KHJlYWRyKVxubGlicmFyeShcInN0cmluZ3JcIikgICAgICAgICAgICAgICAgIFxuXG5kYXRhIDwtIHJlYWRfY3N2KFwiQzovVXNlcnMveWFuZy9Eb2N1bWVudHMvY29kZS90dXRvcmluZy9TYWlnZV9yX2FuZF9weXRob24vcl9hc3NpZ25tZW50cy9jaGlwb3RsZV9yZWR1Y2VkLmNzdlwiKVxuYGBgIn0= -->
-<pre class="r"><code>library(dplyr)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBwdXQgaW5zdGFsbGF0aW9uIG9uIGhlcmVcbmxpYnJhcnkodGlkeXZlcnNlKVxubGlicmFyeShkcGx5cilcbmxpYnJhcnkodGlkeXIpXG5saWJyYXJ5KHJlYWRyKVxubGlicmFyeShcInN0cmluZ3JcIikgICAgICAgICAgICAgICAgIFxuXG5gYGAifQ== -->
+<pre class="r"><code># put installation on here
+library(tidyverse)
+library(dplyr)
 library(tidyr)
 library(readr)
 library(&quot;stringr&quot;)                 
-
-data &lt;- read_csv(&quot;C:/Users/yang/Documents/code/tutoring/Saige_r_and_python/r_assignments/chipotle_reduced.csv&quot;)</code></pre>
+</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMjg0NCBDb2x1bW5zOiAyMuKUgOKUgCBDb2x1bW4gc3BlY2lmaWNhdGlvbiDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbkRlbGltaXRlcjogXCIsXCJcbmNociAgKDEyKTogcGxhY2VrZXksIHN0cmVldF9hZGRyZXNzLCBjaXR5LCByZWdpb24sIG9wZW5faG91cnMsIHZpc2l0c19ieV9kYXksIGJ1Y2tldGVkXy4uLlxuZGJsICAgKDgpOiBsYXRpdHVkZSwgbG9uZ2l0dWRlLCBwb3N0YWxfY29kZSwgcGhvbmVfbnVtYmVyLCByYXdfdmlzaXRfY291bnRzLCByYXdfdmlzaXRvLi4uXG5kdHRtICAoMik6IGRhdGVfcmFuZ2Vfc3RhcnQsIGRhdGVfcmFuZ2VfZW5kXG7ihLkgVXNlIGBzcGVjKClgIHRvIHJldHJpZXZlIHRoZSBmdWxsIGNvbHVtbiBzcGVjaWZpY2F0aW9uIGZvciB0aGlzIGRhdGEuXG7ihLkgU3BlY2lmeSB0aGUgY29sdW1uIHR5cGVzIG9yIHNldCBgc2hvd19jb2xfdHlwZXMgPSBGQUxTRWAgdG8gcXVpZXQgdGhpcyBtZXNzYWdlLlxuIn0= -->
-<pre><code>Rows: 2844 Columns: 22── Column specification ───────────────────────────────────────────────────────────────────
-Delimiter: &quot;,&quot;
-chr  (12): placekey, street_address, city, region, open_hours, visits_by_day, bucketed_...
-dbl   (8): latitude, longitude, postal_code, phone_number, raw_visit_counts, raw_visito...
-dttm  (2): date_range_start, date_range_end
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Create 2 functions. Both functions should take as input the character
@@ -1799,8 +1778,25 @@ that contains the name of each day of the week in one column and the
 number of visits at that store in the other column</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVuY3Rpb24xIDwtIGZ1bmN0aW9uKHN0b3JlKXsgXG4gIGRhdGEgJT4lIFxuICBzZWxlY3QocGxhY2VrZXksIHBvcHVsYXJpdHlfYnlfZGF5KSAlPiUgXG4gIG11dGF0ZShjbGVhbl9wb3B1bGFyID0gZ3N1YihcIlxcXFx7fFxcXFx9XCIsIFwiXCIsIHBvcHVsYXJpdHlfYnlfZGF5KSkgJT4lXG4gIG11dGF0ZShWMiA9IHN0cnNwbGl0KGFzLmNoYXJhY3RlcihjbGVhbl9wb3B1bGFyKSwgXCIsXCIpKSAlPiUgXG4gIHVubmVzdChWMikgJT4lXG4gIHNlcGFyYXRlKFYyLCBjKFwiZGF5XCIsIFwiY291bnRcIiksIFwiOlwiKSAlPiVcbiAgbXV0YXRlKGNsZWFuX2RheSA9IGdzdWIoJ1wiJywgJycsIGRheSkpICU+JVxuICBtdXRhdGUoY291bnQgPSBhcy5udW1lcmljKGNvdW50KSkgJT4lXG4gIHNlbGVjdChwbGFjZWtleSwgY2xlYW5fZGF5LCBjb3VudCkgJT4lXG4gIGZpbHRlcihwbGFjZWtleSA9PSBzdG9yZSlcbn1cblxuYGBgIn0= -->
-<pre class="r"><code>function1 &lt;- function(store){ 
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YSA8LSByZWFkX2NzdihcIi9Vc2Vycy9lbmNoaWVoeWFuZy9Eb2N1bWVudHMvY29kZS90dXRvcmluZy9ob21ld29ya19hc3NpZ25tZW50cy9yX2Fzc2lnbm1lbnRzL2NoaXBvdGxlX3JlZHVjZWQuY3N2XCIpXG5gYGAifQ== -->
+<pre class="r"><code>data &lt;- read_csv(&quot;/Users/enchiehyang/Documents/code/tutoring/homework_assignments/r_assignments/chipotle_reduced.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMjg0NCBDb2x1bW5zOiAyMuKUgOKUgCBDb2x1bW4gc3BlY2lmaWNhdGlvbiDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbkRlbGltaXRlcjogXCIsXCJcbmNociAgKDEyKTogcGxhY2VrZXksIHN0cmVldF9hZGRyZXNzLCBjaXR5LCByZWdpb24sIG9wZW5faG91cnMsIHZpc2l0c19ieV9kYXksIGJ1Y2tldGVkX2R3ZWxsX3RpbWVzLCByZWxhdGVkX3NhbWVfZGF5Li4uXG5kYmwgICAoOCk6IGxhdGl0dWRlLCBsb25naXR1ZGUsIHBvc3RhbF9jb2RlLCBwaG9uZV9udW1iZXIsIHJhd192aXNpdF9jb3VudHMsIHJhd192aXNpdG9yX2NvdW50cywgZGlzdGFuY2VfZnJvbV9ob21lLC4uLlxuZHR0bSAgKDIpOiBkYXRlX3JhbmdlX3N0YXJ0LCBkYXRlX3JhbmdlX2VuZFxu4oS5IFVzZSBgc3BlYygpYCB0byByZXRyaWV2ZSB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbiBmb3IgdGhpcyBkYXRhLlxu4oS5IFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
+<pre><code>Rows: 2844 Columns: 22── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: &quot;,&quot;
+chr  (12): placekey, street_address, city, region, open_hours, visits_by_day, bucketed_dwell_times, related_same_day...
+dbl   (8): latitude, longitude, postal_code, phone_number, raw_visit_counts, raw_visitor_counts, distance_from_home,...
+dttm  (2): date_range_start, date_range_end
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5mdW5jdGlvbjEgPC0gZnVuY3Rpb24oc3RvcmUpeyBcbiAgZGF0YSAlPiUgXG4gIHNlbGVjdChwbGFjZWtleSwgcG9wdWxhcml0eV9ieV9kYXkpICU+JSBcbiAgbXV0YXRlKGNsZWFuX3BvcHVsYXIgPSBnc3ViKFwiXFxcXHt8XFxcXH1cIiwgXCJcIiwgcG9wdWxhcml0eV9ieV9kYXkpKSAlPiVcbiAgbXV0YXRlKFYyID0gc3Ryc3BsaXQoYXMuY2hhcmFjdGVyKGNsZWFuX3BvcHVsYXIpLCBcIixcIikpICU+JSBcbiAgdW5uZXN0KFYyKSAlPiVcbiAgc2VwYXJhdGUoVjIsIGMoXCJkYXlcIiwgXCJjb3VudFwiKSwgXCI6XCIpICU+JVxuICBtdXRhdGUoY2xlYW5fZGF5ID0gZ3N1YignXCInLCAnJywgZGF5KSkgJT4lXG4gIG11dGF0ZShjb3VudCA9IGFzLm51bWVyaWMoY291bnQpKSAlPiVcbiAgc2VsZWN0KHBsYWNla2V5LCBjbGVhbl9kYXksIGNvdW50KSAlPiVcbiAgZmlsdGVyKHBsYWNla2V5ID09IHN0b3JlKVxufVxuXG5gYGAifQ== -->
+<pre class="r"><code>
+function1 &lt;- function(store){ 
   data %&gt;% 
   select(placekey, popularity_by_day) %&gt;% 
   mutate(clean_popular = gsub(&quot;\\{|\\}&quot;, &quot;&quot;, popularity_by_day)) %&gt;%
@@ -1818,7 +1814,11 @@ number of visits at that store in the other column</p>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NywibmNvbCI6Mywic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyI3IMOXIDMiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFCdFZTVFcrQ01CaCtCWkZCb2x2aTc0QUQyNUx0eG1IeDVtVzZhWGFaSFZRbFlrc0tIWnVuL1cwdnNoYmFpZnlETlduNlBzL3pmc1B6MC9MV1hib0FZRUxmTU1DMGhBbld5M3ppUFlCZ0JPaEJIeHo1ZmdtbmNlMEpjQ091cllUeDRWQjZRUkNFOTU4Ymo1UnJiNTg5L2dQcGNvakJsSklZZlN0a3p6bk96OUJaNEppMGlhdjVsck1XSGt4WTBsSm5xT0NzcGM1NG5SdGdKSE9IaXgrNVpBaG4wTHl2WWZPK0tYNmw4RXJwVTFEbjRudFlCTzF4cnNZd2Rla3NSUkhlNGIvT294UWo4bjd1eFlvb0owVW5sY05vNmV0MFEzRU4yVWxWVmNkdXpTaEZ1YTZwU1RkR0JmTFhUTVFMZE9xRTJEUXJFa3BFa0NGL0hxc1QzR01kNHBvVDJVbnNSVnRPZHQ2ZExGREx6UmtxMjI3WlpsUFNxRlFxUys4ZGswMUNzTzQ5UlI4NFZXQWtKcTRIOWpPV2lIMm9TUVNiK3dVdGtQWnpJNXBxcHA0TlRyL2lvbWNBTXdNQUFBPT0ifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3V0cHV0MSA8LSBmdW5jdGlvbjEoXCJ6enctMjIyQDV2Zy1ud2YtbXA5XCIpXG5vdXRwdXQxXG5gYGAifQ== -->
+<pre class="r"><code>output1 &lt;- function1(&quot;zzw-222@5vg-nwf-mp9&quot;)
+output1</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NywibmNvbCI6Mywic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyI3IMOXIDMiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBOVZTVFcrQ01CaCtCWkZKb2pIeGQwQXlsaVh1eG1IeDVtV3dhWGFaSFZRbFlrc0tuWnVuL2UxZFpDMjBFL2tIYTlMMGZaN24vWWFueDlXZHMzSUF3SVMrWVlCcENST3M1Mmp1emtBd0F2U2dEMFA1ZmdxbmFlMEpNQkhYVnNMMGREcTZ2dThIOXg5Ymx4dzM3aUYvK0FmUzlSQ0RCU1VKK2xMSWpqZ3VMbkM0eEFscEV6ZlJqck1XSHN4WjJsSkRWSExXVWtOZTV3WVl5OXpCOGxzdUdZSVFtdmNsYU41WHhhOFZYaXQ5QWVwY2ZRK0xvQU11MUJpbUxwMW5LTVo3L05kNW5HRkUzaTY5V0RIbHBPeWtHako2OUhTNmtiaUc3S1NxcXA5dXpUaERoYTZwU1NkQkpmSTJUTVFMZE82RTJEUXZVMHBFa0NGL0hxc1QzR01kWXNLSjdDUng0eDBuZS9kMkppdlVlbk5HeXJaYnR0blVOQ3FWeTlLTHgyU2JFcXliejlBN3poUVlpNUhyaWIyY3BXSWhhaFRCRmw1SlM2VDluSmhtbXFtSGcvTXZzYlFuTHpRREFBQT0ifQ== -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["placekey"],"name":[1],"type":["chr"],"align":["left"]},{"label":["clean_day"],"name":[2],"type":["chr"],"align":["left"]},{"label":["count"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"zzw-222@5vg-nwf-mp9","2":"Monday","3":"94"},{"1":"zzw-222@5vg-nwf-mp9","2":"Tuesday","3":"76"},{"1":"zzw-222@5vg-nwf-mp9","2":"Wednesday","3":"89"},{"1":"zzw-222@5vg-nwf-mp9","2":"Thursday","3":"106"},{"1":"zzw-222@5vg-nwf-mp9","2":"Friday","3":"130"},{"1":"zzw-222@5vg-nwf-mp9","2":"Saturday","3":"128"},{"1":"zzw-222@5vg-nwf-mp9","2":"Sunday","3":"58"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[7]},"pages":{}}}
@@ -1832,12 +1832,13 @@ Namely, it should return the most popular day of the week (in terms of
 visits) at that store</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnVuY3Rpb24yIDwtIGZ1bmN0aW9uKGlucHV0X2RhdGFmcmFtZSkge1xuICBpbnB1dF9kYXRhZnJhbWUgJT4lXG4gICAgYXJyYW5nZShkZXNjKGNvdW50KSkgJT4lXG4gICAgc2VsZWN0KGNsZWFuX2RheSkgJT4lXG4gICAgdG9wX24oMSlcbn1cblxuYGBgIn0= -->
-<pre class="r"><code>function2 &lt;- function(input_dataframe) {
-  input_dataframe %&gt;%
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5mdW5jdGlvbjIgPC0gZnVuY3Rpb24oaW5wdXRfZGF0YWZyYW1lKSB7XG4gICAgaW5wdXRfZGF0YWZyYW1lICU+JVxuICAgIGFycmFuZ2UoZGVzYyhjb3VudCkpICU+JVxuICAgIHRvcF9uKDEpICU+JVxuICAgIHNlbGVjdChjbGVhbl9kYXkpXG59XG5cbmBgYCJ9 -->
+<pre class="r"><code>
+function2 &lt;- function(input_dataframe) {
+    input_dataframe %&gt;%
     arrange(desc(count)) %&gt;%
-    select(clean_day) %&gt;%
-    top_n(1)
+    top_n(1) %&gt;%
+    select(clean_day)
 }
 </code></pre>
 <!-- rnb-source-end -->
@@ -1845,9 +1846,8 @@ visits) at that store</p>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3V0cHV0MiA8LSBmdW5jdGlvbjIob3V0cHV0MSkgIFxuXG5gYGAifQ== -->
-<pre class="r"><code>output2 &lt;- function2(output1)  
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3V0cHV0MiA8LSBmdW5jdGlvbjIob3V0cHV0MSkgIFxuYGBgIn0= -->
+<pre class="r"><code>output2 &lt;- function2(output1)  </code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiU2VsZWN0aW5nIGJ5IGNvdW50XG4ifQ== -->
 <pre><code>Selecting by count</code></pre>
@@ -1855,21 +1855,18 @@ visits) at that store</p>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3V0cHV0MlxuYGBgIn0= -->
 <pre class="r"><code>output2</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6MSwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIMOXIDEiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFCbVZRU3c3Q0lCQ2RVdEcwaVovRWM3UUwzWGdBMHdNWVRkd1piRkViRVJwS28rNDh1VG8wa0Jna0daaDV2RGZNWTdQZUw5TjlDZ0F4REFpQm1HSUtkTGN0c2hVZ2drVUVBMGpzK1VEU3ZBY0FaajhYdzBMWEZYc0dkQ3JaamJjQk5Ta0ZaL0x3ejA2MHV1ZGVNY1lnTDl3K3VNSzJwV0J0MkRhdG1HSDVTYU1lcTNjZ0dhbkcxRXFpaU5qeGFTQ09kQUJNTzJrbnFiTHkwc2xydHJBUE9Odmdwb3RjL09UMlNmSnhyYWovR2k3UHRlUitkc0dPWExoaWdvNTd3M21qYTJtOEUwVGIzQ2pEUEM4dGxmQkk3dzNlWDZnK1VwUzFBUUFBIn0= -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6MSwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIMOXIDEiXX19LCJyZGYiOiJINHNJQUFBQUFBQUFBMlZRU3c3Q0lCQ2RVdEcwaVovRWM3UWJYWGdBMHdNWVRkd1piRkViRVJwS28rNDh1VG8wa0Jna0daaDV2RGZNWTdQZUw5SjlDZ0F4REFpQm1HSUtkTGN0c2hVZ2drVUVBMGpzK1VEU3ZBY0FaajhYdzBMWEZYc0dkQ3JaamJjQk5Ta0ZaL0x3ejA2MHV1ZGVNY1lnTDl3K3VNSzJwV0J0MkRhdG1HSDVTYU1lcTNjZ0dhbkcxRXFpaU5qeGFTQ09kQUJNTzJrbnFiTHkwc2xydHJRUE9Odmdwb3RjL09UMlNmSnhyYWovR2k3UHRlUitkc0dPWExoaWdvNTd3M21qYTJtOEUwVGIzQ2pEUEM4dGxmQkk3dzNlWHlYMDV3UzFBUUFBIn0= -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["clean_day"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"Friday"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
   </script>
 </div>
 <!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkFcbmBgYCJ9 -->
-<pre class="r"><code>NA</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KQXNzaWdubWVudCAxOg0KUmVhZCBpbiB0aGUgcmVzdGF1cmFudCBsZXZlbCBkYXRhOiBodHRwczovL2J5dWlzdGF0cy5naXRodWIuaW8vTTMzNS9kYXRhL2NoaXBvdGxlX3JlZHVjZWQuY3N2DQoNCkhlcmUgaXMgYSBkYXRhIGRpY3Rpb25hcnkNCg0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShkcGx5cikNCmxpYnJhcnkodGlkeXIpDQpsaWJyYXJ5KHJlYWRyKQ0KbGlicmFyeSgic3RyaW5nciIpICAgICAgICAgICAgICAgICANCg0KZGF0YSA8LSByZWFkX2NzdigiQzovVXNlcnMveWFuZy9Eb2N1bWVudHMvY29kZS90dXRvcmluZy9TYWlnZV9yX2FuZF9weXRob24vcl9hc3NpZ25tZW50cy9jaGlwb3RsZV9yZWR1Y2VkLmNzdiIpDQpgYGANCkNyZWF0ZSAyIGZ1bmN0aW9ucy4gQm90aCBmdW5jdGlvbnMgc2hvdWxkIHRha2UgYXMgaW5wdXQgdGhlIGNoYXJhY3RlciBzdHJpbmcgdGhhdCBjb250YWlucyBhIGNvdW50IG9mIHZpc2l0cyBieSBkYXkgb2YgdGhlIHdlZWsuIEluIG90aGVyIHdvcmRzLCB0aGUgc3RyaW5nIGNvbnRhaW5lZCBpbiBwb3B1bGFyaXR5X2J5X2RheSBmb3IganVzdCBvbmUgc2l0ZSAoYWthIHJvdykuKFdlIHdpbGwgd29ycnkgYWJvdXQgZXhwYW5kaW5nIHRoZSBmdW5jdGlvbiB0byBtdWx0aXBsZSBzaXRlcyBvciByb3dzIGluIHRoZSBuZXh0IHRhc2suIEZvciBub3cgdGhlIGlucHV0IGlzIGp1c3Qgb25lIHN0cmluZykuIFRoZSAyIGZ1bmN0aW9ucyB3aWxsIGRpZmZlciBpbiB3aGF0IHRoZXkgcmV0dXJuOg0KDQpGdW5jdGlvbiAxIHNob3VsZCByZXR1cm4gYSBkYXRhZnJhbWUgKG9yIHRpYmJsZSB0byBiZSBtb3JlIHByZWNpc2UpIHRoYXQgY29udGFpbnMgdGhlIG5hbWUgb2YgZWFjaCBkYXkgb2YgdGhlIHdlZWsgaW4gb25lIGNvbHVtbiBhbmQgdGhlIG51bWJlciBvZiB2aXNpdHMgYXQgdGhhdCBzdG9yZSBpbiB0aGUgb3RoZXIgY29sdW1uDQoNCg0KYGBge3J9DQpmdW5jdGlvbjEgPC0gZnVuY3Rpb24oc3RvcmUpeyANCiAgZGF0YSAlPiUgDQogIHNlbGVjdChwbGFjZWtleSwgcG9wdWxhcml0eV9ieV9kYXkpICU+JSANCiAgbXV0YXRlKGNsZWFuX3BvcHVsYXIgPSBnc3ViKCJcXHt8XFx9IiwgIiIsIHBvcHVsYXJpdHlfYnlfZGF5KSkgJT4lDQogIG11dGF0ZShWMiA9IHN0cnNwbGl0KGFzLmNoYXJhY3RlcihjbGVhbl9wb3B1bGFyKSwgIiwiKSkgJT4lIA0KICB1bm5lc3QoVjIpICU+JQ0KICBzZXBhcmF0ZShWMiwgYygiZGF5IiwgImNvdW50IiksICI6IikgJT4lDQogIG11dGF0ZShjbGVhbl9kYXkgPSBnc3ViKCciJywgJycsIGRheSkpICU+JQ0KICBtdXRhdGUoY291bnQgPSBhcy5udW1lcmljKGNvdW50KSkgJT4lDQogIHNlbGVjdChwbGFjZWtleSwgY2xlYW5fZGF5LCBjb3VudCkgJT4lDQogIGZpbHRlcihwbGFjZWtleSA9PSBzdG9yZSkNCn0NCg0KYGBgDQoNCmBgYHtyfQ0Kb3V0cHV0MSA8LSBmdW5jdGlvbjEoInp6dy0yMjJANXZnLW53Zi1tcDkiKQ0Kb3V0cHV0MQ0KYGBgDQoNCkZ1bmN0aW9uIDIgc2hvdWxkIGJ1aWxkIG9uIEZ1bmN0aW9uIDEgYW5kIHRha2UgaXQgYSBzdGVwIGZ1cnRoZXIuIE5hbWVseSwgaXQgc2hvdWxkIHJldHVybiB0aGUgbW9zdCBwb3B1bGFyIGRheSBvZiB0aGUgd2VlayAoaW4gdGVybXMgb2YgdmlzaXRzKSBhdCB0aGF0IHN0b3JlDQoNCmBgYHtyfQ0KZnVuY3Rpb24yIDwtIGZ1bmN0aW9uKGlucHV0X2RhdGFmcmFtZSkgew0KICAgIGlucHV0X2RhdGFmcmFtZSAlPiUNCiAgICBhcnJhbmdlKGRlc2MoY291bnQpKSAlPiUNCiAgICB0b3BfbigxKSAlPiUNCiAgICBzZWxlY3QoY2xlYW5fZGF5KQ0KfQ0KDQpgYGANCg0KDQpgYGB7cn0NCm91dHB1dDIgPC0gZnVuY3Rpb24yKG91dHB1dDEpICANCm91dHB1dDINCmBgYA0KDQo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpBc3NpZ25tZW50IDE6ClJlYWQgaW4gdGhlIHJlc3RhdXJhbnQgbGV2ZWwgZGF0YTogaHR0cHM6Ly9ieXVpc3RhdHMuZ2l0aHViLmlvL00zMzUvZGF0YS9jaGlwb3RsZV9yZWR1Y2VkLmNzdgoKSGVyZSBpcyBhIGRhdGEgZGljdGlvbmFyeQoKCmBgYHtyfQojIHB1dCBpbnN0YWxsYXRpb24gb24gaGVyZQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShkcGx5cikKbGlicmFyeSh0aWR5cikKbGlicmFyeShyZWFkcikKbGlicmFyeSgic3RyaW5nciIpICAgICAgICAgICAgICAgICAKCmBgYAoKQ3JlYXRlIDIgZnVuY3Rpb25zLiBCb3RoIGZ1bmN0aW9ucyBzaG91bGQgdGFrZSBhcyBpbnB1dCB0aGUgY2hhcmFjdGVyIHN0cmluZyB0aGF0IGNvbnRhaW5zIGEgY291bnQgb2YgdmlzaXRzIGJ5IGRheSBvZiB0aGUgd2Vlay4gSW4gb3RoZXIgd29yZHMsIHRoZSBzdHJpbmcgY29udGFpbmVkIGluIHBvcHVsYXJpdHlfYnlfZGF5IGZvciBqdXN0IG9uZSBzaXRlIChha2Egcm93KS4oV2Ugd2lsbCB3b3JyeSBhYm91dCBleHBhbmRpbmcgdGhlIGZ1bmN0aW9uIHRvIG11bHRpcGxlIHNpdGVzIG9yIHJvd3MgaW4gdGhlIG5leHQgdGFzay4gRm9yIG5vdyB0aGUgaW5wdXQgaXMganVzdCBvbmUgc3RyaW5nKS4gVGhlIDIgZnVuY3Rpb25zIHdpbGwgZGlmZmVyIGluIHdoYXQgdGhleSByZXR1cm46CgpGdW5jdGlvbiAxIHNob3VsZCByZXR1cm4gYSBkYXRhZnJhbWUgKG9yIHRpYmJsZSB0byBiZSBtb3JlIHByZWNpc2UpIHRoYXQgY29udGFpbnMgdGhlIG5hbWUgb2YgZWFjaCBkYXkgb2YgdGhlIHdlZWsgaW4gb25lIGNvbHVtbiBhbmQgdGhlIG51bWJlciBvZiB2aXNpdHMgYXQgdGhhdCBzdG9yZSBpbiB0aGUgb3RoZXIgY29sdW1uCgpgYGB7cn0KZGF0YSA8LSByZWFkX2NzdigiL1VzZXJzL2VuY2hpZWh5YW5nL0RvY3VtZW50cy9jb2RlL3R1dG9yaW5nL2hvbWV3b3JrX2Fzc2lnbm1lbnRzL3JfYXNzaWdubWVudHMvY2hpcG90bGVfcmVkdWNlZC5jc3YiKQpgYGAKCmBgYHtyfQoKIyB0aGlzIGZ1bmN0aW9uIHdpbGwgdGFrZSBwb3B1bGFyaXR5X2J5X2RheSBhbmQgZXhwbG9kZSBpdCBvdXQgaW50byBzZXBhcmF0ZSByb3dzCiMgaXQgdGhlbiB0YWtlcyB0aGUgVjIgY29sdW1uIGFuZCBzcGxpdHMgaXQgaW50byAyIG5ldyBjb2x1bW5zOiBkYXkgYW5kIGNvdW50CiMgdGhlIGZ1bmN0aW9uIGFjY2VwdHMgdGhlIHN0b3JlIElEIGFzIHRoZSBhcmd1bWVudAoKZnVuY3Rpb24xIDwtIGZ1bmN0aW9uKHN0b3JlKXsgCiAgZGF0YSAlPiUgCiAgc2VsZWN0KHBsYWNla2V5LCBwb3B1bGFyaXR5X2J5X2RheSkgJT4lIAogIG11dGF0ZShjbGVhbl9wb3B1bGFyID0gZ3N1YigiXFx7fFxcfSIsICIiLCBwb3B1bGFyaXR5X2J5X2RheSkpICU+JQogIG11dGF0ZShWMiA9IHN0cnNwbGl0KGFzLmNoYXJhY3RlcihjbGVhbl9wb3B1bGFyKSwgIiwiKSkgJT4lIAogIHVubmVzdChWMikgJT4lCiAgc2VwYXJhdGUoVjIsIGMoImRheSIsICJjb3VudCIpLCAiOiIpICU+JQogIG11dGF0ZShjbGVhbl9kYXkgPSBnc3ViKCciJywgJycsIGRheSkpICU+JQogIG11dGF0ZShjb3VudCA9IGFzLm51bWVyaWMoY291bnQpKSAlPiUKICBzZWxlY3QocGxhY2VrZXksIGNsZWFuX2RheSwgY291bnQpICU+JQogIGZpbHRlcihwbGFjZWtleSA9PSBzdG9yZSkKfQoKYGBgCgoKCmBgYHtyfQpvdXRwdXQxIDwtIGZ1bmN0aW9uMSgienp3LTIyMkA1dmctbndmLW1wOSIpCm91dHB1dDEKYGBgCgpGdW5jdGlvbiAyIHNob3VsZCBidWlsZCBvbiBGdW5jdGlvbiAxIGFuZCB0YWtlIGl0IGEgc3RlcCBmdXJ0aGVyLiBOYW1lbHksIGl0IHNob3VsZCByZXR1cm4gdGhlIG1vc3QgcG9wdWxhciBkYXkgb2YgdGhlIHdlZWsgKGluIHRlcm1zIG9mIHZpc2l0cykgYXQgdGhhdCBzdG9yZQoKYGBge3J9CgojIHRoaXMgd2lsbCBvcmRlciB0aGUgb3V0cHV0IGZyb20gZnVuY3Rpb24gMSBieSBjb3VudCBkZXNjZW5kaW5nCiMgaXQgd2lsbCB0aGVuIHRha2UgdGhlIDFzdCByb3cgd2hpY2ggc2hvdWxkIGJlIHRoZSBtb3N0IHBvcHVsYXIgZGF5IG9mIHRoZSB3ZWVrCiMgdGhpcyB0YWtlcyBpbiBhIGRhdGFmcmFtZSBhcyBhbiBhcmd1bWVudAoKZnVuY3Rpb24yIDwtIGZ1bmN0aW9uKGlucHV0X2RhdGFmcmFtZSkgewogICAgaW5wdXRfZGF0YWZyYW1lICU+JQogICAgYXJyYW5nZShkZXNjKGNvdW50KSkgJT4lCiAgICB0b3BfbigxKSAlPiUKICAgIHNlbGVjdChjbGVhbl9kYXkpCn0KCmBgYAoKCmBgYHtyfQpvdXRwdXQyIDwtIGZ1bmN0aW9uMihvdXRwdXQxKSAgCm91dHB1dDIKYGBgCgo=</div>
 
 
 

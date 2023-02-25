@@ -14,40 +14,113 @@ library(dplyr)
 library(tidyr)
 library(readr)
 library("stringr")                 
+library(ggplot2)
 
-data <- read_csv("C:/Users/yang/Documents/code/tutoring/Saige_r_and_python/r_assignments/chipotle_reduced.csv")
 ```
-Use Function 2 from the previous assignment to tally across the restaurants how often each day of the week is selected as the most popular day. Then visualize the results: one chart for overall and another chart that facets by region.
 
 ```{r}
-# this combines function 1 and 2 into one 
-function1_2 <- function(store){ 
+data <- read_csv("/Users/enchiehyang/Documents/code/tutoring/homework_assignments/r_assignments/chipotle_reduced.csv")
+```
+
+```{r}
+
+# this is a modification of function 1 which will return the day column and count
+# for all stores not just 1 store
+# the function takes no argument 
+
+function1 <- function(){ 
   data %>% 
-  select(placekey, popularity_by_day) %>% 
+  select(region, placekey, popularity_by_day) %>% 
   mutate(clean_popular = gsub("\\{|\\}", "", popularity_by_day)) %>%
   mutate(V2 = strsplit(as.character(clean_popular), ",")) %>% 
   unnest(V2) %>%
   separate(V2, c("day", "count"), ":") %>%
   mutate(clean_day = gsub('"', '', day)) %>%
   mutate(count = as.numeric(count)) %>%
-  select(placekey, clean_day, count) %>%
-  filter(placekey == store) %>%
-  arrange(desc(count)) %>%
-  top_n(1) %>%
-  select(clean_day)
+  select(region, placekey, clean_day, count)
 }
 
+base_output <- function1()
+base_output
 ```
+
+# part 1
+
+Use Function 2 from the previous assignment to tally across the restaurants how often each day of the week is selected as the most popular day. Then visualize the results: one chart for overall and another chart that facets by region.
+Note that the unit of observation in this plot/analysis is restaurants. In other words, we are showing a count of the number of restaurants in the plot.
 
 ```{r}
-# filter main data to just test and run it through above function
-stores <- c("zzw-222@5vg-nwf-mp9", "22c-222@5z5-3rs-hwk", "zzw-223@5r8-fqv-xkf")
 
-for (store in stores) {
-  day = function1_2(store)
-  print(day)
-}
+# we'll take the results of the above dataframe and take the most popular day for all restaurants
+# then we'll group by the day and do a sum of all counts for that day 
 
+count_df <- base_output %>%
+  filter(!is.na(clean_day)) %>%
+  arrange(placekey, desc(count)) %>%
+  group_by(placekey) %>%
+  mutate(rank = rank(placekey, ties.method = "first")) %>%
+  filter(rank==1) %>%
+  select(clean_day) %>%
+  group_by(clean_day) %>%
+  summarise(n = n()) %>%
+  arrange(desc(n))
+
+count_df
+```
+
+create a bar graph of the counts by day
+```{r}
+# Basic barplot
+ggplot(data=count_df, aes(x=reorder(clean_day, -n), y=n)) +
+  geom_bar(stat="identity")
 
 ```
 
+# part 2
+
+Use Function 1 from the previous assignment to combine the popularity_by_day data across all restaurants. Then visualize the frequency distribution of visits by day of the week regardless of restaurant. This visualization should be done overall and another chart that facets by region.
+
+Note that the unit of observation in this plot/analysis is an individual visit. In other words, we are counting how may individual visits occurred.
+
+```{r}
+
+# stores <- c("zzw-222@5vg-nwf-mp9", "22c-222@5z5-3rs-hwk", "zzw-223@5r8-fqv-xkf")
+# filter(placekey %in% stores) %>%
+
+combined_all_agg <- base_output %>%
+  filter(!is.na(clean_day)) %>%
+  arrange(placekey, desc(count)) %>%
+  group_by(clean_day) %>%
+  summarise(Frequency = sum(count))
+
+combined_all_agg
+```
+create graph of count by region
+
+```{r}
+# Basic barplot
+ggplot(data=combined_all_agg, aes(x=reorder(clean_day, -Frequency), y=Frequency)) +
+  geom_bar(position = "dodge", stat="identity")
+
+```
+
+let's do the same as above but this time include region
+
+```{r}
+
+combined_all_agg <- base_output %>%
+  filter(!is.na(clean_day)) %>%
+  arrange(placekey, desc(count)) %>%
+  group_by(region, clean_day) %>%
+  summarise(Frequency = sum(count))
+
+combined_all_agg
+```
+create graph of count by region
+
+```{r}
+# Basic barplot
+ggplot(data=combined_all_agg, aes(x=reorder(clean_day, -Frequency), y=Frequency, fill=region)) +
+  geom_bar(position = "dodge", stat="identity")
+
+```
